@@ -1,0 +1,17 @@
+[
+    {
+        "name": "communication",
+        "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores sit beatae dolore dolor. Rerum rem porro quis veniam voluptas! Accusantium expedita cumque eos illo aperiam velit, at ducimus, aliquid, maxime modi dicta dignissimos. Reiciendis magnam doloremque vitae eligendi officia obcaecati.",
+        "image": "./assets/project-1.png"
+    },
+    {
+        "name": "productivity",
+        "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores sit beatae dolore dolor. Rerum rem porro quis veniam voluptas! Accusantium expedita cumque eos illo aperiam velit, at ducimus, aliquid, maxime modi dicta dignissimos. Reiciendis magnam doloremque vitae eligendi officia obcaecati.",
+        "image": "./assets/project-2.png"
+    },
+    {
+        "name": "food",
+        "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores sit beatae dolore dolor. Rerum rem porro quis veniam voluptas! Accusantium expedita cumque eos illo aperiam velit, at ducimus, aliquid, maxime modi dicta dignissimos. Reiciendis magnam doloremque vitae eligendi officia obcaecati.",
+        "image": "./assets/project-3.png"
+    }
+]

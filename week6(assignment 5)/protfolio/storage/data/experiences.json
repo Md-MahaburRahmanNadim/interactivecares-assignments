@@ -1,0 +1,67 @@
+[
+    {
+        "name": "HTML",
+        "year_of_experience": "5",
+        "proficiency": "Expert"
+    },
+    {
+        "name": "CSS",
+        "year_of_experience": "5",
+        "proficiency": "Expert"
+    },
+    {
+        "name": "JS",
+        "year_of_experience": "4",
+        "proficiency": "Expert"
+    },
+    {
+        "name": "SASS",
+        "year_of_experience": "3",
+        "proficiency": "Expert"
+    },
+    {
+        "name": "Typescript",
+        "year_of_experience": "3",
+        "proficiency": "Expert"
+    },
+    {
+        "name": "GIT & GITHUB",
+        "year_of_experience": "4",
+        "proficiency": "Expert"
+    },
+    {
+        "name": "TAILWIND CSS",
+        "year_of_experience": "3",
+        "proficiency": "Expert"
+    },
+    {
+        "name": "BOOTSTRAP",
+        "year_of_experience": "3",
+        "proficiency": "Expert"
+    },
+    {
+        "name": "Material UI",
+        "year_of_experience": "2",
+        "proficiency": "Expert"
+    },
+    {
+        "name": "LARAVEL",
+        "year_of_experience": "1",
+        "proficiency": "BEGINNER"
+    },
+    {
+        "name": "PostgreSQL",
+        "year_of_experience": "1",
+        "proficiency": "BEGINNER"
+    },
+    {
+        "name": "LARAVEL",
+        "year_of_experience": "1",
+        "proficiency": "BEGINNER"
+    },
+    {
+        "name": "MYSQL",
+        "year_of_experience": "2",
+        "proficiency": "Expert"
+    }
+]
