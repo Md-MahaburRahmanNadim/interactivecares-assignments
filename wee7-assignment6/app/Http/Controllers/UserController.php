@@ -14,32 +14,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function profile(){
-        if(auth()->check()){
-            return view('user.profile');
-        }else{
-            return redirect()->route('login');
-        }
-    }
-    public function editProfile(UserEditProfileRequest $request){
-        if(!auth()->check()){
-            return redirect()->route('login');
-        }
-        $incomingFields = null;
-        if($request->method() == 'POST'){
-           $incomingFields = $request->validated();
-        $incomingFields = array_filter($incomingFields,function($value){
-            return $value != null;
-        });
-        if(isset($incomingFields['password'])){
-            $incomingFields['password'] = Hash::make($incomingFields['password']);
-        }
 
-        User::updateOrCreate(['id'=>auth()->user()->id],$incomingFields);
-        return redirect()->route('profile');
-        }
-            return view('user.edit-profile');
-    }
 
 
 public function home(){
@@ -55,12 +30,18 @@ public function signOut(){
 
 }
 
+public function showLoginForm(){
+         return view('user.login');
+}
 public function login(UserLoginRequest $request){
-    if($request->method()== 'POST'){
-       $incomingFields = $request->validated();
-        if(auth()->attempt([
-            'email'=>$incomingFields['email'],
-            'password'=>$incomingFields[ 'password']
+    $incomingFields = $request->validated();
+    dd(auth()->attempt([
+        'email'=>$incomingFields['email'],
+        'password'=>$incomingFields[ 'password']
+        ]));
+    if(auth()->attempt([
+        'email'=>$incomingFields['email'],
+        'password'=>$incomingFields[ 'password']
         ])){
             $request->session()->regenerate();
             return redirect()->route('home');
@@ -68,13 +49,14 @@ public function login(UserLoginRequest $request){
         }
     }
 
-    return view('user.login');
+
+
+
+public function showRegisterForm(){
+    return view('user.register');
 
 }
 public function register(UserRegisterRequest $request){
-    $incomingFields = null;
-    $password= null;
-if($request->method() == 'POST'){
 
     $incomingFields = $request->validated();
     // dd($request); When the request are not full fill the critrial then the request code excuting stop here. If pass the all of the test then it's hit all of the code
@@ -84,11 +66,6 @@ if($request->method() == 'POST'){
     $user= User::create($incomingFields);
     auth()->login($user);
     return redirect()->route('home');
-}
-
-
-
-       return view('user.register');
 
 }
 }

@@ -146,7 +146,7 @@
                     >Your Profile</a
                   >
                   <a
-                    href="{{ route('edit-profile') }}"
+                    href="{{ route('editProfile',auth()->user()->id) }}"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     role="menuitem"
                     tabindex="-1"
@@ -260,7 +260,7 @@
 <!--                >Your Profile</a-->
 <!--              >-->
 <!--              <a-->
-<!--                href="./edit-profile.html"-->
+<!--                href="./editProfile.,auth()->user()->idhtml"-->
 <!--                class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"-->
 <!--                >Edit Profile</a-->
 <!--              >-->
@@ -327,7 +327,7 @@
 
         <!-- Edit Profile Button (Only visible to the profile owner) -->
         <a
-          href="{{ route('edit-profile') }}"
+          href="{{ route('editProfile',auth()->user()->id) }}"
           type="button"
           class="-m-2 flex gap-2 items-center rounded-full px-4 py-2 font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700">
           <svg
