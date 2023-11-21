@@ -70,22 +70,27 @@
                           aria-orientation="vertical"
                           aria-labelledby="user-menu-button"
                           tabindex="-1">
-                    <a
-                            href="#"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                   <a
+                      href="{{ route('posts.edit',['post'=>$post->id])  }}"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      role="menuitem"
+                      tabindex="-1"
+                      id="user-menu-item-0"
+                      >Edit</a
+                    >
+
+                    <form method="POST" action="{{ route('posts.destroy', ['post' => $post->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button
+                            type="submit"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
                             role="menuitem"
                             tabindex="-1"
-                            id="user-menu-item-0"
-                    >Edit</a
-                    >
-                    <a
-                            href="#"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                            role="menuitem"
-                            tabindex="-1"
-                            id="user-menu-item-1"
-                    >Delete</a
-                    >
+                        >
+                            Delete
+                        </button>
+                     </form>
                   </div>
                 </div>
 

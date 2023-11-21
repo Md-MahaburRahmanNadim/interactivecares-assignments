@@ -144,14 +144,18 @@
                       id="user-menu-item-0"
                       >Edit</a
                     >
-                    <a
-                      href="{{ route('posts.destroy',['post'=>$post->id]) }}"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                      tabindex="-1"
-                      id="user-menu-item-1"
-                      >Delete</a
-                    >
+                     <form method="POST" action="{{ route('posts.destroy', ['post' => $post->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button
+                            type="submit"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                            role="menuitem"
+                            tabindex="-1"
+                        >
+                            Delete
+                        </button>
+                     </form>
                   </div>
                 </div>
               </div>
