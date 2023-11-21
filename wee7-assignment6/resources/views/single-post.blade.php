@@ -40,7 +40,8 @@
                 <!-- /User Info -->
               </div>
 
-              <!-- Card Action Dropdown -->
+                @if($post->user_id == auth()->user()->id)
+                 <!-- Card Action Dropdon -->
               <div class="flex flex-shrink-0 self-center" x-data="{ open: false }">
                 <div class="relative inline-block text-left">
                   <div>
@@ -90,6 +91,11 @@
 
               </div>
               <!-- /Card Action Dropdown -->
+
+
+                @endif
+
+
             </div>
           </header>
 

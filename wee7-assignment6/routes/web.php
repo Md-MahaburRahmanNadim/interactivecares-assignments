@@ -20,4 +20,4 @@ Route::match(['GET','POST'],'/sign-out',[ProfileController::class, 'signOut'])->
 // post route
 Route::get('/',[PostController::class, 'index'])->name('home');
 
-Route::resource('posts', PostController::class);
+Route::resource('posts', PostController::class)->middleware('auth');

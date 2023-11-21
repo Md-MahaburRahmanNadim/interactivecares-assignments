@@ -14,6 +14,7 @@ class PostPolicy
     public function viewAny(User $user): bool
     {
         //
+        return true;
     }
 
     /**
@@ -22,6 +23,7 @@ class PostPolicy
     public function view(User $user, Post $post): bool
     {
         //
+        return true;
     }
 
     /**
@@ -38,14 +40,19 @@ class PostPolicy
     public function update(User $user, Post $post): bool
     {
         //
+        return $user->id === $post->user_id;
+            // ? Response::allow()
+            // : Response::deny('You do not own this post.');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Post $post): bool
+    public function delete(User $user, Post $post): mixed
     {
-        //
+        return $user->id === $post->user_id;
+            // ? Response::allow()
+            // : Response::deny('You do not own this post.');
     }
 
     /**

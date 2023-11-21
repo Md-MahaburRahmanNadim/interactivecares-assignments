@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -71,17 +72,29 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit( $post)
     {
         //
+        $post = DB::table('posts')
+        ->select('posts.body','posts.id')
+        ->where('posts.id',$post)
+        ->first();
+        return view('edit-post',compact('post'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request,  $post)
     {
         //
+        $incomingFields = $request->validated();
+        $incomingFields['body'] = strip_tags($incomingFields['body']);
+        DB::table('posts')
+        ->where('id',$post)
+        ->update($incomingFields);
+        return redirect()->route('home')->with('success','Post updated successfully!');
     }
 
     /**
@@ -90,5 +103,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        dd($post);
     }
 }

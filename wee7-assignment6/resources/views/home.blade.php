@@ -1,8 +1,16 @@
 @extends('layouts.home')
 
 @section('main')
+
 <main
+
       class="container max-w-xl mx-auto space-y-8 mt-8 px-2 md:px-0 min-h-screen">
+      @if (session('success'))
+    <div class="alert alert-success bg-blue-500">
+        {{ session('success') }}
+    </div>
+
+@endif
       <!--      <div class="text-center p-12 border border-gray-800 rounded-xl">-->
       <!--        <h1 class="text-3xl justify-center items-center">Welcome to Barta!</h1>-->
       <!--      </div>-->
@@ -32,7 +40,7 @@
                 class="block w-full p-2 pt-2 text-gray-900 rounded-lg border-none outline-none focus:ring-0 focus:ring-offset-0"
                 name="body"
                 rows="2"
-                placeholder="What's going on, Shamim?">{{ old('barta') }}</textarea>
+                placeholder="What's going on, Shamim?">{{ old('body') }}</textarea>
             </div>
           </div>
         </div>
@@ -96,7 +104,8 @@
                 <!-- /User Info -->
               </div>
 
-              <!-- Card Action Dropdown -->
+@if($post->user_id == auth()->user()->id)
+               <!-- Card Action Dropdown -->
               <div
                 class="flex flex-shrink-0 self-center"
                 x-data="{ open: false }">
@@ -128,7 +137,7 @@
                     aria-labelledby="user-menu-button"
                     tabindex="-1">
                     <a
-                      href="#"
+                      href="{{ route('posts.edit',['post'=>$post->id])  }}"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
                       tabindex="-1"
@@ -136,7 +145,7 @@
                       >Edit</a
                     >
                     <a
-                      href="#"
+                      href="{{ route('posts.destroy',['post'=>$post->id]) }}"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
                       tabindex="-1"
@@ -147,6 +156,8 @@
                 </div>
               </div>
               <!-- /Card Action Dropdown -->
+             @endif
+
             </div>
           </header>
 

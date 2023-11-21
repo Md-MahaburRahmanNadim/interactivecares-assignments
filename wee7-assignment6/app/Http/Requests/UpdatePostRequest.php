@@ -23,6 +23,7 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             //
+            'body'=>'required|max:4294967295',
         ];
     }
 }
