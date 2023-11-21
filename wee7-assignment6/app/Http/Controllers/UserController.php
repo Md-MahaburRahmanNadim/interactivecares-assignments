@@ -26,19 +26,13 @@ public function home(){
 
 }
 
-public function signOut(){
-
-}
 
 public function showLoginForm(){
          return view('user.login');
 }
 public function login(UserLoginRequest $request){
     $incomingFields = $request->validated();
-    dd(auth()->attempt([
-        'email'=>$incomingFields['email'],
-        'password'=>$incomingFields[ 'password']
-        ]));
+
     if(auth()->attempt([
         'email'=>$incomingFields['email'],
         'password'=>$incomingFields[ 'password']
@@ -46,7 +40,12 @@ public function login(UserLoginRequest $request){
             $request->session()->regenerate();
             return redirect()->route('home');
 
+        }else{
+            return redirect()->back()->withErrors([
+                'email'=>'The provided credentials do not match our records.',
+            ]);
         }
+
     }
 
 

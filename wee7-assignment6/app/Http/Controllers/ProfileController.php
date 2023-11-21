@@ -10,6 +10,10 @@ use App\Http\Requests\UserEditProfileRequest;
 class ProfileController extends Controller
 {
     //
+    public function signOut(){
+        auth()->logout();
+        return redirect()->route('login');
+    }
     public function profile(){
         if(auth()->check()){
             return view('user.profile');
