@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/',[UserController::class, 'home'])->name('home');
 Route::get('/login',[UserController::class, 'showLoginForm'])->name('showLoginForm');
@@ -15,3 +16,7 @@ Route::get('/profile',[ProfileController::class, 'profile'])->name('profile');
 Route::get('/profile/{id}/edit',[ProfileController::class, 'editProfile'])->name('editProfile');
 Route::patch('/profile/{id}/update',[ProfileController::class, 'updateProfile'])->name('updateProfile');
 Route::match(['GET','POST'],'/sign-out',[ProfileController::class, 'signOut'])->name('sign-out');
+
+
+// post route
+Route::resource('posts', PostController::class);
