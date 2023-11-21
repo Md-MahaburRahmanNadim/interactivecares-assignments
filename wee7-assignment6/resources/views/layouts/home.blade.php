@@ -36,6 +36,7 @@
 
 
 
+
     @yield('main')
 
     <footer class="shadow bg-black mt-10">

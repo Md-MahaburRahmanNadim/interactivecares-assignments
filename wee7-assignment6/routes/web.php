@@ -5,7 +5,6 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 
-Route::get('/',[UserController::class, 'home'])->name('home');
 Route::get('/login',[UserController::class, 'showLoginForm'])->name('showLoginForm');
 Route::post('/login',[UserController::class, 'login'])->name('login');
 Route::get('/register',[UserController::class, 'showRegisterForm'])->name('showRegisterForm');
@@ -19,4 +18,6 @@ Route::match(['GET','POST'],'/sign-out',[ProfileController::class, 'signOut'])->
 
 
 // post route
+Route::get('/',[PostController::class, 'index'])->name('home');
+
 Route::resource('posts', PostController::class);

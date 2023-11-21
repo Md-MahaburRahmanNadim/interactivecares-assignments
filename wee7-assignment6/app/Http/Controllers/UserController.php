@@ -17,15 +17,6 @@ class UserController extends Controller
 
 
 
-public function home(){
-    if(auth()->check()){
-
-        return view('home');
-    }
-    return redirect()->route('register');
-
-}
-
 
 public function showLoginForm(){
          return view('user.login');

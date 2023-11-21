@@ -14,7 +14,22 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        //by using db query builder
+
+
+
+    if(auth()->check()){
+        // join query for post and user table
+        $posts = DB::table('posts')
+        ->join('users','posts.user_id','=','users.id')
+        ->select('posts.*','users.firstName','users.lastName','users.username')
+        ->get();
+        return view('home',compact('posts'));
+    }
+    return redirect()->route('register');
+
+
+
     }
 
     /**

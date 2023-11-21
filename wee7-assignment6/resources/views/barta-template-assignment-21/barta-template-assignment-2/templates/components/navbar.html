@@ -105,7 +105,7 @@
             aria-labelledby="user-menu-button"
             tabindex="-1">
             <a
-              href="{{ route('profile') }}"
+              href="./profile.html"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               role="menuitem"
               tabindex="-1"
@@ -113,7 +113,7 @@
               >Your Profile</a
             >
             <a
-              href="{{ route('editProfile',auth()->user()->id) }}"
+              href="./edit-profile.html"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               role="menuitem"
               tabindex="-1"
@@ -121,7 +121,7 @@
               >Edit Profile</a
             >
             <a
-              href="{{ route('sign-out') }}"
+              href="#"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               role="menuitem"
               tabindex="-1"
@@ -220,17 +220,17 @@
           >Create New Post</a
         >
         <a
-          href="{{ route('profile') }}"
+          href="./profile.html"
           class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
           >Your Profile</a
         >
         <a
-          href="{{ route('editProfile',auth()->user()->id) }}"
+          href="./edit-profile.html"
           class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
           >Edit Profile</a
         >
         <a
-          href="{{ route('sign-out') }}"
+          href="#"
           class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
           >Sign out</a
         >
