@@ -7,6 +7,7 @@
       <section
         id="newsfeed"
         class="space-y-6">
+
         <article
           class="bg-white border-2 border-black rounded-lg shadow mx-auto max-w-none px-4 py-5 sm:px-6">
           <!-- Barta Card Top -->
@@ -27,13 +28,13 @@
                   <a
                     href="profile.html"
                     class="hover:underline font-semibold line-clamp-1">
-                    Al Nahian
+                    {{ $post->firstName . $post->lastName  }}
                   </a>
 
                   <a
                     href="profile.html"
                     class="hover:underline text-sm text-gray-500 line-clamp-1">
-                    @alnahian2003
+                    {{ '@'.$post->username }}
                   </a>
                 </div>
                 <!-- /User Info -->
@@ -95,17 +96,7 @@
           <!-- Content -->
           <div class="py-4 text-gray-700 font-normal">
             <p>
-              🎉🥳 Turning 20 today! 🎂
-              <br />
-              One of the best things in my life has been my love affair with
-              <a
-                href="#laravel"
-                class="text-black font-semibold hover:underline"
-                >#Laravel</a
-              >
-              <br />
-              <br />
-              Keep me in your prayers 😌
+              {{ $post->body }}
             </p>
           </div>
 

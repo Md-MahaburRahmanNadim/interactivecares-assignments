@@ -56,9 +56,16 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    // public function show(Post $post)
+    public function show($post)
     {
-        //
+        // join query for post and user table
+        $post = DB::table('posts')
+        ->join('users','posts.user_id','=','users.id')
+        ->select('posts.*','users.firstName','users.lastName','users.username')
+        ->where('posts.id',$post)
+        ->first();
+        return view('single-post',compact('post'));
     }
 
     /**
