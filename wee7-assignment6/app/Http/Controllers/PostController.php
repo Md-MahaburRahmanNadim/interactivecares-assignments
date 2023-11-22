@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -25,6 +26,7 @@ class PostController extends Controller
         ->join('users','posts.user_id','=','users.id')
         ->select('posts.*','users.firstName','users.lastName','users.username')
         ->get();
+
         return view('home',compact('posts'));
     }
     return redirect()->route('register');
@@ -66,6 +68,7 @@ class PostController extends Controller
         ->select('posts.*','users.firstName','users.lastName','users.username')
         ->where('posts.id',$post)
         ->first();
+        $post->body = Str::markdown($post->body);
         return view('single-post',compact('post'));
     }
 
@@ -102,7 +105,7 @@ class PostController extends Controller
      */
     public function destroy( $post)
     {
-        
+
         DB::table('posts')
         ->where('id',$post)
         ->delete();

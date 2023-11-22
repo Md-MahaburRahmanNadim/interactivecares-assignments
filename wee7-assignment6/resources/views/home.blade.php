@@ -40,7 +40,7 @@
                 class="block w-full p-2 pt-2 text-gray-900 rounded-lg border-none outline-none focus:ring-0 focus:ring-offset-0"
                 name="body"
                 rows="2"
-                placeholder="What's going on, Shamim?">{{ old('body') }}</textarea>
+                placeholder="{{'What\'s going on, '. auth()->user()->firstName . ' ' . auth()->user()->lastName . ' ' . '? please share your feelings with us   '  }}">{!! old('body') !!}</textarea>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@
           <a href="{{ route('posts.show',['post'=>$post->id]) }}">
             <div class="py-4 text-gray-700 font-normal">
                 <p>
-                    {{ $post->body }}
+                    {!!Str::markdown($post->body)  !!}
                 </p>
             </div>
           </a>

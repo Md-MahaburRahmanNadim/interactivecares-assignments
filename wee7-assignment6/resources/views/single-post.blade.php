@@ -107,7 +107,7 @@
           <!-- Content -->
           <div class="py-4 text-gray-700 font-normal">
             <p>
-              {{ $post->body }}
+              {!! $post->body !!}
             </p>
           </div>
 
