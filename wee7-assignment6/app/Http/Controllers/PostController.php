@@ -26,8 +26,14 @@ class PostController extends Controller
         ->join('users','posts.user_id','=','users.id')
         ->select('posts.*','users.firstName','users.lastName','users.username')
         ->get();
+        // pass comment data to view
+        $comments = DB::table('comments')
+        ->join('users','comments.user_id','=','users.id')
+        ->select('comments.*','users.firstName','users.lastName','users.username')
+        ->get();
+        // dd($comments);
 
-        return view('home',compact('posts'));
+        return view('home',compact('posts','comments'));
     }
     return redirect()->route('register');
 
@@ -68,8 +74,15 @@ class PostController extends Controller
         ->select('posts.*','users.firstName','users.lastName','users.username')
         ->where('posts.id',$post)
         ->first();
+        // pass comment data to view
+        $comments = DB::table('comments')
+        ->join('users','comments.user_id','=','users.id')
+        ->select('comments.*','users.firstName','users.lastName','users.username')
+        ->where('comments.post_id',$post->id)
+        ->get();
         $post->body = Str::markdown($post->body);
-        return view('single-post',compact('post'));
+        return view('single-post',compact('post','comments'));
+
     }
 
     /**
