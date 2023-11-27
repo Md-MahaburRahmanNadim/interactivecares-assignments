@@ -23,7 +23,7 @@ class ValidateCommentRequest extends FormRequest
     {
         return [
             'comment' => ['required', 'string', 'max:6000'],
-            'post_id' => 'required|exists:posts,id',
+            'post_id' => ['required', 'integer', 'exists:posts,id'],
         ];
     }
 }

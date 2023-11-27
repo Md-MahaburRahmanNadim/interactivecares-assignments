@@ -106,7 +106,7 @@
 
 @if($post->user_id == auth()->user()->id)
                <!-- Card Action Dropdown -->
-             <x-post.card-action :post="$post" />
+             <x-post.card-action :post="$post" postOrComment='post' edit='posts.edit' destroy='posts.destroy' />
               <!-- /Card Action Dropdown -->
              @endif
 

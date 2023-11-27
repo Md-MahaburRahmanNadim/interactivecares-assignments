@@ -16,7 +16,7 @@
               </div>
 
                 <!-- Card Action Dropdown -->
-                <x-post.card-action :post="$post" />
+                <x-post.card-action :post="$post" postOrComment='post' edit='posts.edit' destroy='posts.destroy' />
                 <!-- /Card Action Dropdown -->
             </div>
           </header>
@@ -85,7 +85,7 @@
             @if ($comment->user_id == auth()->user()->id)
 
             <!-- Card Action Dropdown -->
-              <x-post.card-action :post="$post" />
+              <x-post.card-action :comment="$comment" postOrComment='comment' edit='comments.edit' destroy='comments.destroy'  />
             <!-- /Card Action Dropdown -->
             @endif
                 </div>

@@ -29,7 +29,7 @@
                           aria-labelledby="user-menu-button"
                           tabindex="-1">
                    <a
-                      href="{{ route('posts.edit',['post'=>$post->id])  }}"
+                      href="{{ route($edit,[$postOrComment=>$$postOrComment->id])  }}"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
                       tabindex="-1"
@@ -37,7 +37,7 @@
                       >Edit</a
                     >
 
-                    <form method="POST" action="{{ route('posts.destroy', ['post' => $post->id]) }}">
+                    <form method="POST" action="{{ route( $destroy , [$postOrComment => $$postOrComment->id]) }}">
                         @csrf
                         @method('DELETE')
                         <button
@@ -56,4 +56,4 @@
               <!-- /Card Action Dropdown -->
 
 
- 
+

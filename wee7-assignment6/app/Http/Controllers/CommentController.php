@@ -53,22 +53,35 @@ class CommentController extends Controller
      */
     public function edit( $comment)
     {
-        
+        // fetch comment by using db facade
+
+          $comment = DB::table('comments')->where('id',$comment)->first();
+
+        return view('edit-comment', compact('comment'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comment $comment)
+    public function update(  $comment,ValidateCommentRequest $request)
     {
-        //
+
+        $incomingFields = $request->validated();
+
+        DB::table('comments')->where('id',$comment)->update($incomingFields);
+        return redirect()->route('posts.show', ['post' => $incomingFields['post_id']])
+        ->with('success', 'Comment updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comment $comment)
+    public function destroy( $comment)
     {
-        //
+        // destroy comment by using db facade
+        $storingComment = DB::table('comments')->where('id',$comment)->first();
+       DB::table('comments')->where('id',$comment)->delete();
+        return redirect()->route('posts.show', ['post' => $storingComment->post_id])->with('success', 'Comment deleted successfully!');
+
     }
 }
